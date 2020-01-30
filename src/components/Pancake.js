@@ -1,3 +1,4 @@
+
 import React from "react";
 
 class Pancake extends React.Component {
@@ -19,11 +20,16 @@ class Pancake extends React.Component {
       timeCooked: this.state.timeCooked + 1
     });
   };
-
+componentDidMount(){
+this.startInterval()
+}
   startInterval = () => {
     this.interval = setInterval(this.updateCounter, 1000);
-  };
+  }
 
+componentWillUnmount(){
+this.cleanUpInterval()
+}
   cleanUpInterval = () => {
     clearInterval(this.interval);
   };
